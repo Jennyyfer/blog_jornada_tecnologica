@@ -1,0 +1,228 @@
+/* Importação de Fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600&display=swap');
+
+/* Variáveis CSS para Cores */
+:root {
+    --primary-color: #3498db;   /* Azul vibrante */
+    --secondary-color: #e74c3c; /* Vermelho coral */
+    --accent-color: #2ecc71;    /* Verde esmeralda */
+    --text-color: #333;
+    --background-light: #f0f8ff; /* Azul clarinho quase branco */
+    --background-dark: #2c3e50; /* Azul escuro */
+    --card-background: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-heavy: rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos Gerais do Corpo */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--background-light), #dbe9f5); /* Gradiente de fundo */
+    color: var(--text-color);
+    min-height: 100vh; /* Garante que o fundo cubra toda a altura */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+header {
+    background: var(--background-dark);
+    color: #fff;
+    padding: 2.5rem 0;
+    text-align: center;
+    border-bottom: 8px solid var(--primary-color);
+    box-shadow: 0 5px 15px var(--shadow-heavy);
+    font-family: 'Poppins', sans-serif;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5em;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.5em;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* Conteúdo Principal do Blog */
+main {
+    flex-grow: 1; /* Permite que o main ocupe o espaço restante */
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px; /* Espaçamento entre os "posts" */
+}
+
+/* Cartões de Post (cada seção do blog) */
+.post-card {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 15px var(--shadow-light);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.8s ease-out;
+    opacity: 0; /* Inicialmente invisível para o efeito de fade-in */
+    transform: translateY(20px); /* Inicialmente um pouco abaixo */
+    position: relative; /* Para o pseudo-elemento decorativo */
+    overflow: hidden; /* Garante que o pseudo-elemento não vaze */
+}
+
+/* Efeito de visibilidade para o fade-in */
+.post-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Pseudo-elemento para "cores decorativas" nos cards */
+.post-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px; /* Altura da barra colorida */
+    background-color: var(--primary-color); /* Cor padrão */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Cores diferentes para cada card (exemplo de interatividade visual) */
+#introducao::before { background-color: var(--accent-color); }
+#primeiros-passos::before { background-color: var(--secondary-color); }
+#aprofundamento::before { background-color: #f39c12; } /* Laranja */
+#projetos::before { background-color: #9b59b6; } /* Roxo */
+#futuro::before { background-color: #1abc9c; } /* Turquesa */
+
+/* Títulos dos Cards */
+.post-card h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 10px; /* Ajuste para a barra colorida */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 2px dashed #eee;
+    padding-bottom: 15px;
+}
+
+.post-card h3 {
+    color: var(--background-dark);
+    font-size: 1.6em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.post-card p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Estilos para listas dentro dos cards */
+.post-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.post-card ul li {
+    background: var(--background-light);
+    border-left: 5px solid var(--primary-color);
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.post-card ul li:hover {
+    transform: translateX(5px);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-card ul li h4 {
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.3em;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--background-dark);
+    color: #fff;
+    margin-top: 40px;
+    border-top: 8px solid var(--primary-color);
+    font-size: 1em;
+    box-shadow: 0 -5px 15px var(--shadow-heavy);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+    main {
+        padding: 20px 10px;
+        margin: 20px auto;
+    }
+
+    .post-card {
+        padding: 20px;
+    }
+
+    .post-card h2 {
+        font-size: 1.8em;
+    }
+
+    .post-card h3 {
+        font-size: 1.4em;
+    }
+
+    .post-card p, .post-card ul li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p {
+        font-size: 0.9em;
+    }
+
+    main {
+        padding: 15px 5px;
+        margin: 15px auto;
+    }
+
+    .post-card {
+        padding: 15px;
+    }
+
+    .post-card h2 {
+        font-size: 1.5em;
+        padding-bottom: 10px;
+    }
+
+    .post-card h3 {
+        font-size: 1.2em;
+    }
+}
