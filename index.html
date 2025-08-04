@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Jornada Tech Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Minha Jornada Tecnológica</h1>
+        <p>Explorando o universo digital, um passo colorido de cada vez.</p>
+    </header>
+
+    <main>
+        <section class="post-card" id="introducao">
+            <h2>✨ Onde Tudo Começou ✨</h2>
+            <p>Minha curiosidade pela tecnologia nasceu quando... (Conte aqui sua primeira lembrança, um momento "AHA!", um gadget que te fascinou).</p>
+            <p>Desde cedo, fui atraído por... (Ex: jogos, computadores antigos, como a internet funcionava). Essa faísca inicial acendeu a chama da minha jornada.</p>
+        </section>
+
+        <section class="post-card" id="primeiros-passos">
+            <h2>🚀 Os Primeiros Códigos e Descobertas 🚀</h2>
+            <div class="card-content">
+                <h3>HTML & CSS: O Alicerce da Web</h3>
+                <p>Aprender **HTML** e **CSS** foi como descobrir a linguagem secreta da internet. Ver minhas primeiras linhas de código transformarem-se em uma página web foi incrivelmente gratificante. Comecei a entender a estrutura e a beleza por trás de cada site.</p>
+            </div>
+            <div class="card-content">
+                <h3>JavaScript: A Magia da Interatividade</h3>
+                <p>A entrada no mundo do **JavaScript** foi um divisor de águas. A capacidade de adicionar interatividade, animações e lógica às páginas abriu um universo de possibilidades, transformando sites estáticos em experiências dinâmicas.</p>
+            </div>
+        </section>
+
+        <section class="post-card" id="aprofundamento">
+            <h2>💡 Expandindo Horizontes e Ferramentas 💡</h2>
+            <div class="card-content">
+                <h3>Frameworks Front-end: Produtividade em Ação</h3>
+                <p>Mergulhar em frameworks como **React.js** (ou Vue.js, Angular) otimizou meu desenvolvimento. Pude construir interfaces mais complexas e reativas, gerenciando o estado da aplicação de forma eficiente e modular.</p>
+            </div>
+            <div class="card-content">
+                <h3>Backend & Banco de Dados: A Base Poderosa</h3>
+                <p>A curiosidade me levou ao **backend**, onde comecei a trabalhar com **Node.js** (ou Python com Django/Flask). Conectar o front-end a bancos de dados como **MongoDB** (ou PostgreSQL, MySQL) foi fundamental para criar aplicações completas e funcionais.</p>
+            </div>
+        </section>
+
+        <section class="post-card" id="projetos">
+            <h2>🛠️ Meus Projetos Marcantes 🛠️</h2>
+            <ul>
+                <li>
+                    <h4>Website de Portfólio Interativo</h4>
+                    <p>Um site responsivo com animações CSS e scroll parallax, exibindo meus principais trabalhos e habilidades. Usei **HTML**, **CSS**, e **JavaScript** puro.</p>
+                </li>
+                <li>
+                    <h4>Aplicativo de E-commerce Simples</h4>
+                    <p>Desenvolvi um protótipo de loja online com funcionalidades de carrinho de compras e listagem de produtos. Tecnologias: **React.js**, **Context API** e uma API simulada para produtos.</p>
+                </li>
+                <li>
+                    <h4>API de Gerenciamento de Tarefas</h4>
+                    <p>Criei uma **API RESTful** para um aplicativo de lista de tarefas, com rotas para CRUD, autenticação JWT. Tecnologias: **Node.js**, **Express.js**, **MongoDB**.</p>
+                </li>
+                <li>
+                    <h4>[Adicione seu 4º projeto, se houver!]</h4>
+                    <p>[Breve descrição e tecnologias]</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="post-card" id="futuro">
+            <h2>✨ Próximos Passos e Aspirações ✨</h2>
+            <p>A jornada tecnológica é contínua e empolgante! Meus próximos objetivos incluem explorar mais a fundo... (Ex: **Inteligência Artificial**, **Machine Learning**, **Desenvolvimento Mobile com React Native/Flutter**, **Cloud Computing** com AWS/Azure).</p>
+            <p>Busco sempre aprender e contribuir, e estou animado para os desafios que virão!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Minha Jornada Tecnológica. Desenvolvido com paixão e curiosidade.</p>
+    </footer>
+
+    <script>
+        // Adiciona um efeito de "zoom" ao passar o mouse sobre os cards
+        document.querySelectorAll('.post-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.transform = 'scale(1.02)';
+                card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+            });
+            card.addEventListener('mouseout', () => {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = '0 6px 15px rgba(0, 0, 0, 0.1)';
+            });
+        });
+
+        // Adiciona um efeito simples de fade-in para as seções ao rolar
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 }); // Começa a animar quando 10% do elemento está visível
+
+        document.querySelectorAll('.post-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
