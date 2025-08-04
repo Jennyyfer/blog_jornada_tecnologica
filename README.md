@@ -1,0 +1,1 @@
+# blog_jornada_tecnologica
